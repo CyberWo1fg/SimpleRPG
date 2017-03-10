@@ -1,4 +1,5 @@
 ﻿using Engine;
+using SuperAdventure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -134,6 +135,7 @@ namespace SimpleRPG
 
             if (propertyChangedEventArgs.PropertyName == "CurrentLocation")
             {
+                btnTrade.Visible = (_player.CurrentLocation.VendorWorkingHere != null);
                 // Show/hide available movement buttons
                 btnNorth.Visible = (_player.CurrentLocation.LocationToNorth != null);
                 btnEast.Visible = (_player.CurrentLocation.LocationToEast != null);
@@ -220,6 +222,13 @@ namespace SimpleRPG
         private void cboWeapons_SelectedIndexChanged(object sender, EventArgs e)
         {
             _player.CurrentWeapon = (Weapon)cboWeapons.SelectedItem;
+        }
+
+        private void btnTrade_Click(object sender, EventArgs e)
+        {
+            TradingScreen tradingScreen = new TradingScreen(_player);
+            tradingScreen.StartPosition = FormStartPosition.CenterParent;
+            tradingScreen.ShowDialog(this);
         }
     }
 }
