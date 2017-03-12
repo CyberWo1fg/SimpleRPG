@@ -1,0 +1,15 @@
+<World>
+	<Locations>
+		<location id = 1 name = "nerv's village" description = "Пара крупных деревьев с дуплами используется как жилища. Также есть несколько землянок">
+			<WestId>2</WestId>
+		</location>
+		<location id = 2 name = "village's meadow" description = "Поляна рядом с деревней. Тут проводятся различные обряды и посвящения">
+			<WestId>3</WestId>
+			<EastId>1</EastId>
+		</location>
+		<location id = 3 name = "river band" description = "Излучина реки. Край деревни">
+			<WestId>2</WestId>
+			<NorthId>4</NorthId>
+		</location>
+	</Locations>
+</World>
