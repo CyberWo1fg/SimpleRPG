@@ -9,7 +9,6 @@
 		</location>
 		<location id = 3 name = "river band" description = "Излучина реки. Край деревни">
 			<WestId>2</WestId>
-			<NorthId>4</NorthId>
 		</location>
 	</Locations>
 </World>

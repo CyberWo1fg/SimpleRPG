@@ -82,7 +82,7 @@ namespace Engine
         {
             Player player = new Player(10, 10, 20, 0);
             player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
-            player.CurrentLocation = World.LocationByID(World.LOCATION_ID_HOME);
+            player.CurrentLocation = World.LocationByID(World.LOCATION_ID_VILLAGE);
 
             return player;
         }
@@ -498,7 +498,7 @@ namespace Engine
 
         private void MoveHome()
         {
-            MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
+            MoveTo(World.LocationByID(World.LOCATION_ID_VILLAGE));
         }
 
         public void MoveNorth()

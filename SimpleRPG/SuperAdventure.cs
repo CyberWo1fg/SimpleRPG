@@ -22,8 +22,6 @@ namespace SimpleRPG
         {
             InitializeComponent();
 
-            Location location = new Location(1, "Home", "This is your house.");
-
             if (File.Exists(PLAYER_DATA_FILE_NAME))
             {
                 _player = Player.CreatePlayerFromXmlString(File.ReadAllText(PLAYER_DATA_FILE_NAME));
