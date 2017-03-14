@@ -12,7 +12,7 @@ namespace Engine
         public string Description { get; set; }
         public Item ItemRequiredToEnter { get; set; }
         public Quest QuestAvailableHere { get; set; }
-        public Vendor VendorWorkingHere { get; set; }
+        public NPC VendorWorkingHere { get; set; }
         public Location LocationToNorth { get; set; }
         public Location LocationToEast { get; set; }
         public Location LocationToSouth { get; set; }

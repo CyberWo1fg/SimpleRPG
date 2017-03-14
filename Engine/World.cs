@@ -81,11 +81,11 @@ namespace Engine
 
         private static void PopulateLocationsNew()
         {
-            Location village = new Location(LOCATION_ID_VILLAGE, "Деревня невров", "Пара крупных деревьев с дуплами используется как жилища. Также есть несколько землянок");
-            Location villageMeadow = new Location(LOCATION_ID_VILLAGE_MEADOW, "Поляна", "Поляна рядом с деревней. Тут проводятся различные обряды и посвящения");
+            Location village = new Location(LOCATION_ID_VILLAGE, "Деревня невров", "Пара крупных деревьев с дуплами используется как жилища. Также есть несколько землянок. Деревья-великаны окружили исполинскую поляну плотной стеной, ветви над ней переплелись. Выход из деревни только на востоке.");
+            Location villageMeadow = new Location(LOCATION_ID_VILLAGE_MEADOW, "Поляна", "Деревенская поляна. Тут проводятся различные обряды и посвящения");
             Location riverBand = new Location(LOCATION_ID_RIVERBAND, "Излучина реки", "Излучина реки. Край деревни");
-            Location forestRiver = new Location(LOCATION_ID_FOREST_RIVER, "Река в прилесье", "Продолжение реки к северу от деревни. Русло реки ширится и уходит на северо-запад. Если уйти на север сейчас, через реку не перейти");
-            Location forest = new Location(LOCATION_ID_FOREST, "Прилесье", "Отсюда можно уйти по направлению в черный лес, или к большой реке");
+            Location forestRiver = new Location(LOCATION_ID_FOREST_RIVER, "Река в полесье", "Продолжение реки к северу от деревни. Русло реки ширится и уходит на северо-запад. Если уйти на север сейчас, через реку не перейти");
+            Location forest = new Location(LOCATION_ID_FOREST, "Полесье", "Отсюда можно уйти по направлению в черный лес, или к большой реке");
             Location blackwoodPath = new Location(LOCATION_ID_BLACKWOOD_PATH, "Тропа в черный лес", "В черном лесу можно сгинуть с первых же шагов. Но тропа туда все равно имеется");
             Location oakGrove = new Location(LOCATION_ID_OAK_GROVE, "Дубовая роща", "Последний рубеж перед черным лесом. Дальше на запад лучше не идти");
             Location villageBack = new Location(LOCATION_ID_VILLAGE_BACK, "Лес за деревней", "\" Задний двор \" деревни. Отсюда можно увидеть Дупло Боромира");
@@ -93,6 +93,11 @@ namespace Engine
             Location villageSouth = new Location(LOCATION_ID_VILLAGE_SOUTH, "Юг от деревни", "Дальше на юге Темный лес. Там Полулюди убивают всех.");
             Location lightwoodEdge = new Location(LOCATION_ID_LIGHTWOOD_EDGE, "Край светлого леса", "Дальше на юге Темный лес. Там Полулюди убивают всех.");
             Location lightwoodRiver = new Location(LOCATION_ID_LIGHTWOOD_RIVER, "Река светлого леса", "Дальше на юге Темный лес. Там Полулюди убивают всех.");
+
+            village.QuestAvailableHere = QuestByID(QUEST_ID_NEED_FOR_FOOD);
+
+            villageBack.AddMonster(MONSTER_ID_SPIDER, 85);
+            villageBack.AddMonster(MONSTER_ID_GIANT_SPIDER, 15);
 
             village.LocationToEast = villageMeadow;
 
@@ -164,33 +169,52 @@ namespace Engine
             _items.Add(new Weapon(ITEM_ID_STONE_AXE, "Stone axe", "stone axes", 2, 5, 30));
             _items.Add(new Weapon(ITEM_ID_SILICON_KNIFE, "Silicon knife", "Silicon knives", 1, 4, 20));
             _items.Add(new Weapon(ITEM_ID_SILICON_AXE, "Silicon axe", "Silicon axes", 4, 9, 50));
-        }
+            _items.Add(new Item(ITEM_ID_WOLF_SKIN, "Wolf skin", "Wolf skins", 2)); 
+            _items.Add(new Item(ITEM_ID_WOLF_FANG, "Wolf fang", "Wolf fangs", 3));
+            _items.Add(new Item(ITEM_ID_BEAR_SKIN, "Bear skin", "Bear skins", 50));
+            _items.Add(new Item(ITEM_ID_HALFHUMAN_HEAD, "Head of halfhuman", "Heads of halfhumans", 1));
+            _items.Add(new Item(ITEM_ID_FISH, "Fish", "Fishes", 5));
+            _items.Add(new Item(ITEM_ID_MUSHROOMS, "Mashroom", "Mashrooms", 7));
+            _items.Add(new Item(ITEM_ID_BIRD_EGG, "Bird's egg", "Bird's eggs", 10));
+            _items.Add(new Item(ITEM_ID_WILD_BERRY, "Wild berry", "Wild berries", 6));
+            _items.Add(new Item(ITEM_ID_BAD_STONE, "Bad stone", "Bad stones", 1));
+            _items.Add(new Item(ITEM_ID_GOOD_STONE, "Good stone", "Good stones", 2));
+            _items.Add(new Item(ITEM_ID_BEST_STONE, "Best stone", "Best stones", 5));
+            _items.Add(new Weapon(ITEM_ID_PIKE, "Wooden pike", "Wooden pikes", 3, 8, 25));
+    }
 
         private static void PopulateMonsters()
         {
             Monster rat = new Monster(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3);
-            rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_RAT_TAIL), 75, false));
-            rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_PIECE_OF_FUR), 75, true));
+            rat.AddLoot(ITEM_ID_RAT_TAIL, 75);
+            rat.AddLoot(ITEM_ID_PIECE_OF_FUR, 75, true);
 
             Monster snake = new Monster(MONSTER_ID_SNAKE, "Snake", 5, 3, 10, 3, 3);
-            snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SNAKE_FANG), 75, false));
-            snake.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SNAKESKIN), 75, true));
+            snake.AddLoot(ITEM_ID_SNAKE_FANG, 75);
+            snake.AddLoot(ITEM_ID_SNAKESKIN, 75, true);
 
+            Monster spider = new Monster(MONSTER_ID_SPIDER, "Spider", 5, 3, 10, 3, 3);
+            spider.AddLoot(ITEM_ID_SPIDER_FANG, 50, true);
+            spider.AddLoot(ITEM_ID_SPIDER_SILK, 10);
+ 
             Monster giantSpider = new Monster(MONSTER_ID_GIANT_SPIDER, "Giant spider", 20, 5, 40, 10, 10);
-            giantSpider.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SPIDER_FANG), 75, true));
-            giantSpider.LootTable.Add(new LootItem(ItemByID(ITEM_ID_SPIDER_SILK), 25, false));
+            giantSpider.AddLoot(ITEM_ID_SPIDER_FANG, 75, true);
+            giantSpider.AddLoot(ITEM_ID_SPIDER_SILK, 25);
 
             Monster wolf = new Monster(MONSTER_ID_WOLF, "Wolf", 15, 4, 0, 5, 5);
-            wolf.LootTable.Add(new LootItem(ItemByID(ITEM_ID_WOLF_SKIN), 65, true));
-            wolf.LootTable.Add(new LootItem(ItemByID(ITEM_ID_WOLF_FANG), 35, false));
+            wolf.AddLoot(ITEM_ID_WOLF_SKIN, 65, true);
+            wolf.AddLoot(ITEM_ID_WOLF_FANG, 35);
 
             Monster bear = new Monster(MONSTER_ID_BEAR, "Bear", 40, 50, 0, 60, 60);
-            bear.LootTable.Add(new LootItem(ItemByID(ITEM_ID_BEAR_SKIN), 100, true));
+            bear.AddLoot(ITEM_ID_BEAR_SKIN, 100);
 
             Monster halfhuman = new Monster(MONSTER_ID_HALFHUMAN, "Wild Half Human", 50, 100, 0, 100, 100);
+            halfhuman.AddLoot(ITEM_ID_STONE_KNIFE, 5);
+            halfhuman.AddLoot(ITEM_ID_STONE_AXE, 1);
 
             _monsters.Add(rat);
             _monsters.Add(snake);
+            _monsters.Add(spider);
             _monsters.Add(giantSpider);
             _monsters.Add(wolf);
             _monsters.Add(bear);
@@ -200,6 +224,22 @@ namespace Engine
 
         private static void PopulateQuests()
         {
+            Quest fishing =
+                new Quest(
+                    QUEST_ID_FISHING,
+                    "Веселая рыбалка",
+                    "Годовит попросил вас наловить вместо него рыбы. Думаю, 10 рыбин должно хватить", 20, 0);
+            fishing.RewardItem = ItemByID(ITEM_ID_BIRD_EGG);
+
+            Quest stoneForAxe =
+                new Quest(
+                    QUEST_ID_STONE_FOR_AXE,
+                    "Найдите лучший камень",
+                    "Громобой сможет сделать вам каменную секиру, но для этого ему нужен хороший кусок камня", 30, 0);
+
+            stoneForAxe.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_BEST_STONE), 1));
+            stoneForAxe.RewardItem = ItemByID(ITEM_ID_STONE_AXE);
+
             Quest needForFood =
                 new Quest(
                     QUEST_ID_NEED_FOR_FOOD,
@@ -216,10 +256,12 @@ namespace Engine
 
             newAmulet.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_SNAKE_FANG), 20));
 
-            newAmulet.RewardItem = ItemByID(ITEM_ID_STONE_AXE);
+            newAmulet.RewardItem = ItemByID(ITEM_ID_SILICON_KNIFE);
 
             _quests.Add(needForFood);
             _quests.Add(newAmulet);
+            _quests.Add(fishing);
+            _quests.Add(stoneForAxe);
         }
 
         private static void PopulateLocations()

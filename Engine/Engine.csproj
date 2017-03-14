@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,7 +54,7 @@
     <Compile Include="QuestCompletionItem.cs" />
     <Compile Include="Quets.cs" />
     <Compile Include="RandomNumberGenerator .cs" />
-    <Compile Include="Vendor.cs" />
+    <Compile Include="NPC.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="LootItem.cs" />
     <Compile Include="World.cs" />

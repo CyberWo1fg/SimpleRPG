@@ -1,14 +1,179 @@
 <World>
-	<Locations>
-		<location id = 1 name = "nerv's village" description = "Пара крупных деревьев с дуплами используется как жилища. Также есть несколько землянок">
-			<WestId>2</WestId>
-		</location>
-		<location id = 2 name = "village's meadow" description = "Поляна рядом с деревней. Тут проводятся различные обряды и посвящения">
-			<WestId>3</WestId>
-			<EastId>1</EastId>
-		</location>
-		<location id = 3 name = "river band" description = "Излучина реки. Край деревни">
-			<WestId>2</WestId>
-		</location>
-	</Locations>
+  <Locations>
+    <location id = "1">
+      <Localization code="RU">
+        <name>Деревня невров</name>
+        <description>Пара крупных деревьев с дуплами используется как жилища. Также есть несколько землянок. Деревья-великаны окружили исполинскую поляну плотной стеной, ветви над ней переплелись. Выход из деревни только на востоке.</description>
+      </Localization>
+      <Localization code="EN">
+        <name>nevr's village</name>
+        <description>A pair of large trees with hollows are used as dwellings. There are also several dugouts. The giant trees surrounded the gigantic glade with a dense wall, the branches over it intertwined. Exit the village only in the east.</description>
+      </Localization>
+    </location>
+    <location id = "2">
+      <Localization code="RU">
+        <name>Деревенская поляна</name>
+        <description>Тут проводятся различные обряды и посвящения</description>
+      </Localization>
+      <Localization code="EN">
+        <name>village's meadow</name>
+        <description>There are various rites and initiations</description>
+      </Localization>
+    </location>
+    <location id = "3">
+      <Localization code="RU">
+        <name>Излучина реки</name>
+        <description>Излучина реки. Край деревни</description>
+      </Localization>
+      <Localization code="EN">
+        <name>river band</name>
+        <description>The river is the border of the village. After it begins the forest</description>
+      </Localization>
+    </location>
+    <location id = "4">
+      <Localization code="RU">
+        <name>Река в полесье</name>
+        <description>Продолжение реки к северу от деревни. Русло реки ширится и уходит на северо-запад. Если уйти на север сейчас, через реку не перейти </description>
+      </Localization>
+      <Localization code="EN">
+        <name>River in the woodland</name>
+        <description>Continuation of the river to the north of the village. The river bed spreads and leaves to the north-west. If you go north now, you wouldn't cross the river after</description>
+      </Localization>
+    </location>
+    <location id = "5">
+      <Localization code="RU">
+        <name>Полесье</name>
+        <description>Отсюда можно уйти по направлению в черный лес, или к большой реке</description>
+      </Localization>
+      <Localization code="EN">
+        <name>Woodlands</name>
+        <description>From here you can go in the direction of a black forest, or to a large river</description>
+      </Localization>
+    </location>
+    <location id = "6">
+      <Localization code="RU">
+        <name>Тропа в черный лес</name>
+        <description>В черном лесу можно сгинуть с первых же шагов. Но тропа туда все равно имеется</description>
+      </Localization>
+      <Localization code="EN">
+        <name>Path to the Black Forest</name>
+        <description>In the black forest, you can disappear from the first steps. But there is still a path there</description>
+      </Localization>
+    </location>
+    <location id = "7">
+      <Localization code="RU">
+        <name>Дубовая роща</name>
+        <description>Последний рубеж перед черным лесом. Дальше на запад лучше не идти</description>
+      </Localization>
+      <Localization code="EN">
+        <name></name>
+        <description></description>
+      </Localization>
+    </location>
+    <location id = "8">
+      <Localization code="RU">
+        <name>Лес за деревней</name>
+        <description>Лес по ту сторону могучих деревьев, что опутали деревню с запада. Отсюда можно увидеть Дупло Боромира</description>
+      </Localization>
+      <Localization code="EN">
+        <name></name>
+        <description></description>
+      </Localization>
+    </location>
+    <location id = "9">
+      <Localization code="RU">
+        <name>Юго западный угол деревни</name>
+        <description>Просто еще одна лесная локация</description>
+      </Localization>
+      <Localization code="EN">
+        <name></name>
+        <description></description>
+      </Localization>
+    </location>
+    <location id = "10">
+      <Localization code="RU">
+        <name>Юг от деревни</name>
+        <description>Дальше на юге Темный лес. Там Полулюди убивают всех</description>
+      </Localization>
+      <Localization code="EN">
+        <name></name>
+        <description></description>
+      </Localization>
+    </location>
+    <location id = "11">
+      <Localization code="RU">
+        <name>Край светлого леса</name>
+        <description>Дальше на юге Темный лес. Там Полулюди убивают всех</description>
+      </Localization>
+      <Localization code="EN">
+        <name></name>
+        <description></description>
+      </Localization>
+    </location>
+    <location id = "12">
+      <Localization code="RU">
+        <name>Река светлого леса</name>
+        <description>Дальше на юге Темный лес. Там Полулюди убивают всех</description>
+      </Localization>
+      <Localization code="EN">
+        <name></name>
+        <description></description>
+      </Localization>
+    </location>
+  </Locations>
+  <Portals>
+    <location id = "1">
+      <East>2</East>
+    </location>
+    <location id = "2">
+      <West>1</West>
+      <East>3</East>
+      <South>11</South>
+    </location>
+    <location id = "3">
+      <West>2</West>
+      <East>3</East>
+      <South>12</South>
+      <North>4</North>
+    </location>
+    <location id = "4">
+      <West>5</West>
+      <North>3</North>
+    </location>
+    <location id = "5">
+      <West>6</West>
+      <East>4</East>
+    </location>
+    <location id = "6">
+      <West>7</West>
+      <East>5</East>
+      <South>12</South>
+      <North>4</North>
+    </location>
+    <location id = "7">
+      <East>6</East>
+      <South>8</South>
+    </location>
+    <location id = "8">
+      <South>9</South>
+      <North>7</North>
+    </location>
+    <location id = "9">
+      <East>10</East>
+      <North>8</North>
+    </location>
+    <location id = "10">
+      <West>9</West>
+      <East>11</East>
+    </location>
+    <location id = "11">
+      <West>12</West>
+      <East>10</East>
+      <North>2</North>
+    </location>
+    <location id = "12">
+      <East>11</East>
+      <North>3</North>
+    </location>
+  </Portals>
 </World>

@@ -31,6 +31,12 @@ namespace Engine
             LootItems = new List<InventoryItem>();
         }
 
+        public void AddLoot(int id, int percent, bool isDefaultItem = false)
+        {
+            LootItem item = new LootItem(World.ItemByID(id), percent, isDefaultItem);
+            LootTable.Add(item);
+        }
+
         internal Monster NewInstanceOfMonster()
         {
             Monster newMonster =

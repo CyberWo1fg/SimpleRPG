@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace Engine
 {
-    public class Vendor : INotifyPropertyChanged
+    public class NPC : INotifyPropertyChanged
     {
         public string Name { get; set; }
         public BindingList<InventoryItem> Inventory { get; private set; }
 
-        public Vendor(string name)
+        public NPC(string name)
         {
             Name = name;
             Inventory = new BindingList<InventoryItem>();
