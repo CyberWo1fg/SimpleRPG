@@ -51,11 +51,12 @@
     <Compile Include="PlayerQuest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestCompletionItem.cs" />
-    <Compile Include="Quets.cs" />
+    <Compile Include="Quests.cs" />
     <Compile Include="RandomNumberGenerator .cs" />
     <Compile Include="Vendor.cs" />
     <Compile Include="Weapon.cs" />
     <Compile Include="LootItem.cs" />
+    <Compile Include="EditorWorld.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
