@@ -17,8 +17,10 @@ namespace Engine
         public Location LocationToEast { get; set; }
         public Location LocationToSouth { get; set; }
         public Location LocationToWest { get; set; }
+        public readonly SortedList<int, int> _lootAtLocation = new SortedList<int, int>();
 
         public bool HasAMonster { get { return _monstersAtLocation.Count > 0; } }
+        public bool HasLoot { get { return _lootAtLocation.Count > 0; } }
         public bool HasAQuest { get { return QuestAvailableHere != null; } }
         public bool DoesNotHaveAnItemRequiredToEnter { get { return ItemRequiredToEnter == null; } }
 
@@ -41,6 +43,18 @@ namespace Engine
             else
             {
                 _monstersAtLocation.Add(monsterID, percentageOfAppearance);
+            }
+        }
+
+        public void AddLoot(int ItemID, int percentageOfAppearance)
+        {
+            if (_lootAtLocation.ContainsKey(ItemID))
+            {
+                _lootAtLocation[ItemID] = percentageOfAppearance;
+            }
+            else
+            {
+                _lootAtLocation.Add(ItemID, percentageOfAppearance);
             }
         }
 
@@ -76,5 +90,27 @@ namespace Engine
             // In case there was a problem, return the last monster in the list.
             return World.MonsterByID(_monstersAtLocation.Keys.Last()).NewInstanceOfMonster();
         }
+
+        public Item NewInstanceOfItemLootableHere()
+        {
+            if (!HasLoot)
+            {
+                return null;
+            }
+
+            // Select a random number between 1 and 100.
+            int randomNumber = RandomNumberGenerator.NumberBetween(1, 100);
+
+            foreach (KeyValuePair<int, int> LootKeyValuePair in _lootAtLocation)
+            {
+                if (randomNumber <= LootKeyValuePair.Value)
+                {
+                    return World.ItemByID(LootKeyValuePair.Key).NewInstanceOfItem();
+                }
+            }
+
+            return null;
+        }
+
     }
 }

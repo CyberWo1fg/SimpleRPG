@@ -81,7 +81,7 @@ namespace Engine
         public static Player CreateDefaultPlayer()
         {
             Player player = new Player(10, 10, 20, 0);
-            player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
+            player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_STONE_KNIFE), 1));
             player.CurrentLocation = World.LocationByID(World.LOCATION_ID_VILLAGE);
 
             return player;
@@ -170,6 +170,16 @@ namespace Engine
             }
         }
 
+        public void FindLootAtTheLocation()
+        {
+            Item loot = CurrentLocation.NewInstanceOfItemLootableHere();
+            if (loot != null)
+            {
+                AddItemToInventory(loot);
+                RaiseMessage("You found a " + loot.Name);
+            }
+        }
+
         private bool PlayerDoesNotHaveThisQuest(Quest quest)
         {
             return Quests.All(pq => pq.Details.ID != quest.ID);
@@ -243,14 +253,17 @@ namespace Engine
             RaiseMessage("You receive: ");
             RaiseMessage(quest.RewardExperiencePoints + " experience points");
             RaiseMessage(quest.RewardGold + " gold");
-            RaiseMessage(quest.RewardItem.Name, true);
+            if (quest.RewardItem != null)
+            {
+                RaiseMessage(quest.RewardItem.Name, true);
+                AddItemToInventory(quest.RewardItem);
+            }
+                
 
             AddExperiencePoints(quest.RewardExperiencePoints);
             Gold += quest.RewardGold;
 
             RemoveQuestCompletionItems(quest);
-            AddItemToInventory(quest.RewardItem);
-
             MarkPlayerQuestCompleted(quest);
         }
 
@@ -418,6 +431,8 @@ namespace Engine
 
             SetTheCurrentMonsterForTheCurrentLocation(location);
         }
+
+
 
         private bool PlayerHasAllQuestCompletionItemsFor(Quest quest)
         {

@@ -20,5 +20,11 @@ namespace Engine
             NamePlural = namePlural;
             Price = price;
         }
+
+        internal Item NewInstanceOfItem()
+        {
+            return new Item(ID, Name, NamePlural, Price);
+        }
+
     }
 }

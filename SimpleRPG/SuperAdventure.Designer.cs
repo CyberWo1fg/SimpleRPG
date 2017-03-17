@@ -54,6 +54,7 @@
             this.btnSouth = new System.Windows.Forms.Button();
             this.btnWest = new System.Windows.Forms.Button();
             this.btnTrade = new System.Windows.Forms.Button();
+            this.btnFindLoot = new System.Windows.Forms.Button();
             this.tcDataViewer.SuspendLayout();
             this.tpInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
@@ -232,7 +233,7 @@
             this.tpQuests.Location = new System.Drawing.Point(4, 22);
             this.tpQuests.Name = "tpQuests";
             this.tpQuests.Padding = new System.Windows.Forms.Padding(3);
-            this.tpQuests.Size = new System.Drawing.Size(256, 172);
+            this.tpQuests.Size = new System.Drawing.Size(256, 232);
             this.tpQuests.TabIndex = 1;
             this.tpQuests.Text = "Квесты";
             this.tpQuests.UseVisualStyleBackColor = true;
@@ -251,7 +252,7 @@
             this.dgvQuests.Name = "dgvQuests";
             this.dgvQuests.ReadOnly = true;
             this.dgvQuests.RowHeadersVisible = false;
-            this.dgvQuests.Size = new System.Drawing.Size(250, 166);
+            this.dgvQuests.Size = new System.Drawing.Size(250, 226);
             this.dgvQuests.TabIndex = 24;
             // 
             // pControlPanel
@@ -269,6 +270,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel1.Controls.Add(this.btnFindLoot, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btnNorth, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnEast, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnSouth, 1, 2);
@@ -339,6 +341,17 @@
             this.btnTrade.UseVisualStyleBackColor = true;
             this.btnTrade.Click += new System.EventHandler(this.btnTrade_Click);
             // 
+            // btnFindLoot
+            // 
+            this.btnFindLoot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFindLoot.Location = new System.Drawing.Point(3, 69);
+            this.btnFindLoot.Name = "btnFindLoot";
+            this.btnFindLoot.Size = new System.Drawing.Size(88, 28);
+            this.btnFindLoot.TabIndex = 27;
+            this.btnFindLoot.Text = "Искать";
+            this.btnFindLoot.UseVisualStyleBackColor = true;
+            this.btnFindLoot.Click += new System.EventHandler(this.btnFindLoot_Click);
+            // 
             // SuperAdventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,6 +421,7 @@
         private System.Windows.Forms.Button btnSouth;
         private System.Windows.Forms.Button btnWest;
         private System.Windows.Forms.Button btnTrade;
+        private System.Windows.Forms.Button btnFindLoot;
     }
 }
 

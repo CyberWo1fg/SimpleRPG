@@ -96,8 +96,17 @@ namespace Engine
 
             village.QuestAvailableHere = QuestByID(QUEST_ID_NEED_FOR_FOOD);
 
-            villageBack.AddMonster(MONSTER_ID_SPIDER, 85);
-            villageBack.AddMonster(MONSTER_ID_GIANT_SPIDER, 15);
+            villageBack.AddMonster(MONSTER_ID_SPIDER, 95);
+            villageBack.AddMonster(MONSTER_ID_GIANT_SPIDER, 5);
+
+            riverBand.AddLoot(ITEM_ID_WILD_BERRY, 30);
+            riverBand.AddLoot(ITEM_ID_BIRD_EGG, 15);
+
+            forestRiver.AddLoot(ITEM_ID_WILD_BERRY, 30);
+            forestRiver.AddLoot(ITEM_ID_BIRD_EGG, 30);
+
+            forest.AddLoot(ITEM_ID_WILD_BERRY, 25);
+            forest.AddLoot(ITEM_ID_MUSHROOMS, 45);
 
             village.LocationToEast = villageMeadow;
 

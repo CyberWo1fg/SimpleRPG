@@ -134,6 +134,7 @@ namespace SimpleRPG
             if (propertyChangedEventArgs.PropertyName == "CurrentLocation")
             {
                 btnTrade.Visible = (_player.CurrentLocation.VendorWorkingHere != null);
+                btnFindLoot.Visible = (_player.CurrentLocation.HasLoot);
                 // Show/hide available movement buttons
                 btnNorth.Visible = (_player.CurrentLocation.LocationToNorth != null);
                 btnEast.Visible = (_player.CurrentLocation.LocationToEast != null);
@@ -227,6 +228,11 @@ namespace SimpleRPG
             TradingScreen tradingScreen = new TradingScreen(_player);
             tradingScreen.StartPosition = FormStartPosition.CenterParent;
             tradingScreen.ShowDialog(this);
+        }
+
+        private void btnFindLoot_Click(object sender, EventArgs e)
+        {
+            _player.FindLootAtTheLocation();
         }
     }
 }
